@@ -1,0 +1,60 @@
+package com.company;
+import java.util.Scanner;
+import java.util.Random;
+
+public class rock_paper_scissors {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Random ra = new Random();
+        System.out.println("Let's Play Rock, Paper & Scissor");
+        System.out.println("It's Your turn");
+        System.out.println("Select the following input for your turn:");
+        System.out.println("0 - Rock");
+        System.out.println("1 - Paper");
+        System.out.println("2 - Scissors");
+        int a = sc.nextInt();
+        switch (a){
+            case 0: {
+                System.out.println("You have Selected Rock");
+                break;
+            }
+            case 1: {
+                System.out.println("You have Selected Paper");
+                break;
+            }
+            case 2: {
+                System.out.println("You have Selected Scissor");
+                break;
+            }
+            default:{
+                System.out.println("Invalid Input. Please select the number between 0-2");
+                break;
+            }
+        }
+        System.out.println("Great, Now it's your Computer's Turn");
+        int b = ra.nextInt(3);
+        switch (b){
+            case 0: {
+                System.out.println("Computer has Selected Rock");
+                break;
+            }
+            case 1: {
+                System.out.println("Computer has Selected Paper");
+                break;
+            }
+            case 2: {
+                System.out.println("Computer has Selected Scissor");
+                break;
+            }
+        }
+        if(a==b){
+            System.out.println("Draw..!!!");
+        }
+        else if ((a==0 && b==2) || (a==1 && b==0) || (a==2 && b==1)){
+            System.out.println("Congratulations..!! You have won the game");
+        }
+        else {
+            System.out.println("Sorry, You have lost the game. Please try again");
+        }
+    }
+}
