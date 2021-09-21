@@ -1,0 +1,94 @@
+// LoginID.java
+
+package com.form.LoginID;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.lang.Exception;
+
+
+class CreateLoginForm extends JFrame implements ActionListener
+{
+    JButton b1;
+    JPanel newPanel;
+    JLabel userLabel, passLabel;
+    final JTextField textField1, textField2;
+
+    CreateLoginForm()
+    {
+        userLabel = new JLabel();
+        userLabel.setText("Username: ");
+
+        textField1 = new JTextField(20);
+
+        passLabel = new JLabel();
+        passLabel.setText("Password: ");
+
+        textField2 = new JTextField(15);
+
+        b1 = new JButton("Login");
+
+        newPanel = new JPanel(new GridLayout(3,1));
+        newPanel.add(userLabel);
+        newPanel.add(textField1);
+        newPanel.add(passLabel);
+        newPanel.add(textField2);
+        newPanel.add(b1);
+
+        add(newPanel, BorderLayout.CENTER);
+
+        b1.addActionListener(this);
+        setTitle("Login Form");
+    }
+    public void actionPerformed(ActionEvent ae)
+    {
+        String userValue = textField1.getText();
+        String passValue = textField2.getText();
+
+        if (userValue.equals("test1@gmail.com") && passValue.equals("test"))
+        {
+            NewPage page = new NewPage();
+            page.setVisible(true);
+
+            JLabel wel = new JLabel("Welcome User " + userValue);
+            page.getContentPane().add(wel);
+        }
+        else
+        {
+            System.out.println("Please enter Valid Username and Password");
+        }
+    }
+}
+class LoginFormDemo
+{
+    public static void main(String[] args) {
+        try
+        {
+            com.form.LoginID.CreateLoginForm form = new com.form.LoginID.CreateLoginForm();
+            form.setSize(500,120);
+            form.setVisible(true);
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
+}
+
+// NewPage.Java
+
+package com.form.LoginID;
+
+import javax.swing.*;
+
+class NewPage extends JFrame
+{
+    NewPage()
+    {
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Welcome");
+        setSize(400,200);
+    }
+}
